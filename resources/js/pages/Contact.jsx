@@ -28,8 +28,8 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const contactEmail = profile?.email || 'wesam@alnathari.tech';
-  const contactPhone = profile?.phone;
+  const contactEmail = profile?.email || 'wlnedari@gmail.com';
+  const contactPhone = profile?.phone || '+967 781668332';
   const contactLocation = profile ? (isRtl ? profile.location_ar : profile.location_en) : (isRtl ? 'الجمهورية اليمنية' : 'Yemen');
 
   const handleSubmit = async (e) => {

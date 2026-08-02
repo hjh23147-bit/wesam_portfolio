@@ -20,10 +20,10 @@ export default function Footer() {
   const githubUrl = profile?.github_url || 'https://github.com';
   const linkedinUrl = profile?.linkedin_url || 'https://linkedin.com';
   const twitterUrl = profile?.twitter_url;
-  const whatsappUrl = profile?.whatsapp_url || 'https://wa.me/967770000000';
+  const whatsappUrl = profile?.whatsapp_url || 'https://wa.me/967781668332';
   const facebookUrl = profile?.facebook_url || 'https://facebook.com';
-  const emailAddr = profile?.email || 'wesam@alnathari.tech';
-  const phoneNumber = profile?.phone || '+967 770 000 000';
+  const emailAddr = profile?.email || 'wlnedari@gmail.com';
+  const phoneNumber = profile?.phone || '+967 781668332';
 
   return (
     <footer className="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 pt-16 pb-12 mt-24 transition-colors duration-300">
