@@ -38,7 +38,7 @@ export default function Navbar() {
   const adminPath = isAdminLoggedIn ? '/admin' : '/admin/login';
 
   // Dynamic profile avatar for header logo
-  const profileAvatar = profile?.avatar || null;
+  const profileAvatar = profile?.avatar || '/we.jpg';
   const profileName = profile ? (lang === 'ar' ? profile.name_ar : profile.name_en) : (lang === 'ar' ? 'وسام النظاري' : 'Wesam Al-Nathari');
   const profileTagline = profile ? (lang === 'ar' ? profile.title_ar?.split('،')[0] || 'هندسة وأنظمة ذكية' : profile.title_en?.split(',')[0] || 'Systems & AI Engineer') : (lang === 'ar' ? 'هندسة وأنظمة ذكية' : 'Systems & AI Engineer');
 

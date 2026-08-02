@@ -30,6 +30,7 @@ const resources = {
         catAi: 'الذكاء الاصطناعي والأنظمة الذكية',
         catSecurity: 'الأمن السيبراني والشبكات',
         catArchitecture: 'هندسة الأنظمة وقواعد البيانات',
+        catOther: 'وظائف وخبرات أخرى',
       },
       projects: {
         title: 'معرض الأعمال والمشاريع',
@@ -100,6 +101,7 @@ const resources = {
         catAi: 'AI & Smart Systems',
         catSecurity: 'Cybersecurity & Networking',
         catArchitecture: 'Systems Architecture & Databases',
+        catOther: 'Other Competencies & Professional Roles',
       },
       projects: {
         title: 'Portfolio & Featured Works',

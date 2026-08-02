@@ -7,8 +7,8 @@ import { useLanguage } from '../../context/LanguageContext';
 export default function Login() {
   const navigate = useNavigate();
   const { isRtl } = useLanguage();
-  const [email, setEmail] = useState('wesam.os');
-  const [password, setPassword] = useState('225211.10');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 

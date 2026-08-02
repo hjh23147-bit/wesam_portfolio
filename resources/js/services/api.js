@@ -40,6 +40,9 @@ export const fallbackSkills = [
   { id: 9, name_ar: 'هندسة الأنظمة وتصميم Mappings & DFD/ERD', name_en: 'Systems Architecture & DFD/ERD Modeling', category: 'Systems Architecture', proficiency: 96, icon: 'Network' },
   { id: 10, name_ar: 'إطار العمل Laravel (PHP)', name_en: 'Laravel Framework (PHP)', category: 'Systems Architecture', proficiency: 95, icon: 'Layers' },
   { id: 11, name_ar: 'قواعد البيانات MySQL & Query Optimization', name_en: 'MySQL Database & Query Optimization', category: 'Systems Architecture', proficiency: 93, icon: 'Database' },
+  { id: 12, name_ar: 'إدارة المشاريع والقيادة الفنية', name_en: 'Project Management & Technical Leadership', category: 'Other Competencies & Roles', proficiency: 92, icon: 'Briefcase' },
+  { id: 13, name_ar: 'الاستشارات الهندسية وتحليل الأنظمة', name_en: 'Systems Consulting & Technical Audit', category: 'Other Competencies & Roles', proficiency: 94, icon: 'Compass' },
+  { id: 14, name_ar: 'إدارة التشغيل وتنسيق فرق العمل', name_en: 'IT Operations & Team Coordination', category: 'Other Competencies & Roles', proficiency: 90, icon: 'Users' },
 ];
 
 export const fallbackProjects = [
@@ -294,7 +297,7 @@ export const fallbackProfile = {
   phone: '+967 770 000 000',
   location_ar: 'الجمهورية اليمنية',
   location_en: 'Yemen',
-  avatar: null,
+  avatar: '/we.jpg',
   github_url: 'https://github.com/wesam',
   linkedin_url: 'https://linkedin.com/in/wesam',
   twitter_url: 'https://twitter.com/wesam',

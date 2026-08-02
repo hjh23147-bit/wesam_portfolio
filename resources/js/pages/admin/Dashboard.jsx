@@ -1028,6 +1028,7 @@ export default function Dashboard() {
                     <option value="AI & Smart Systems">AI & Smart Systems</option>
                     <option value="Cybersecurity & Networking">Cybersecurity & Networking</option>
                     <option value="Systems Architecture">Systems Architecture</option>
+                    <option value="Other Competencies & Roles">Other Competencies & Roles (وظائف وخبرات أخرى)</option>
                   </select>
                 </div>
                 <div>

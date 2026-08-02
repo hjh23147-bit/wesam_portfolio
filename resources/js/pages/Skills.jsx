@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
 import { getSkills } from '../services/api';
 import SkillBadge from '../components/SkillBadge';
-import { Code2, Cpu, ShieldCheck, Network, Layers } from 'lucide-react';
+import { Code2, Cpu, ShieldCheck, Network, Layers, Briefcase } from 'lucide-react';
 
 export default function Skills() {
   const { t } = useTranslation();
@@ -20,6 +20,7 @@ export default function Skills() {
     { key: 'AI & Smart Systems', label: t('skills.catAi'), icon: Cpu, color: 'from-blue-700 to-indigo-600' },
     { key: 'Cybersecurity & Networking', label: t('skills.catSecurity'), icon: ShieldCheck, color: 'from-indigo-600 to-blue-800' },
     { key: 'Systems Architecture', label: t('skills.catArchitecture'), icon: Network, color: 'from-blue-800 to-sky-600' },
+    { key: 'Other Competencies & Roles', label: t('skills.catOther'), icon: Briefcase, color: 'from-sky-600 to-teal-500' },
   ];
 
   return (
