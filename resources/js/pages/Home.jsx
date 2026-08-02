@@ -19,9 +19,15 @@ export default function Home() {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    getSkills().then(setSkills);
-    getProjects().then(data => setFeaturedProjects(data.slice(0, 3)));
-    getArticles().then(data => setLatestArticles(data.slice(0, 2)));
+    getSkills().then(res => setSkills(Array.isArray(res) ? res : []));
+    getProjects().then(res => {
+      const list = Array.isArray(res) ? res : [];
+      setFeaturedProjects(list.slice(0, 3));
+    });
+    getArticles().then(res => {
+      const list = Array.isArray(res) ? res : [];
+      setLatestArticles(list.slice(0, 2));
+    });
     getProfile().then(setProfile);
   }, []);
 
@@ -204,7 +210,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skills.slice(0, 8).map(skill => (
+          {(skills || []).slice(0, 8).map(skill => (
             <SkillBadge key={skill.id} skill={skill} />
           ))}
         </div>

@@ -155,7 +155,9 @@ const setStandaloneMode = () => {
 
 const isStandaloneMode = () => {
   try {
-    return localStorage.getItem('standalone_mode') === 'true';
+    const val = localStorage.getItem('standalone_mode');
+    if (val === 'false') return false;
+    return true;
   } catch {
     return true;
   }
@@ -198,7 +200,8 @@ export const getSkills = async () => {
   if (isStandaloneMode()) return getLocalData('mock_skills', fallbackSkills);
   try {
     const res = await apiClient.get('/skills');
-    return res.data.data;
+    const data = res.data?.data;
+    return Array.isArray(data) ? data : getLocalData('mock_skills', fallbackSkills);
   } catch {
     setStandaloneMode();
     return getLocalData('mock_skills', fallbackSkills);
@@ -212,12 +215,13 @@ export const getProjects = async (category = 'all') => {
   } else {
     try {
       const res = await apiClient.get('/projects', { params: { category } });
-      projects = res.data.data;
+      projects = res.data?.data;
     } catch {
       setStandaloneMode();
       projects = getLocalData('mock_projects', fallbackProjects);
     }
   }
+  if (!Array.isArray(projects)) projects = getLocalData('mock_projects', fallbackProjects);
   if (category === 'all') return projects;
   return projects.filter(p => p.category === category);
 };
@@ -229,7 +233,7 @@ export const getProjectBySlug = async (slug) => {
   }
   try {
     const res = await apiClient.get(`/projects/${slug}`);
-    return res.data.data;
+    return res.data?.data || getLocalData('mock_projects', fallbackProjects)[0];
   } catch {
     setStandaloneMode();
     const projects = getLocalData('mock_projects', fallbackProjects);
@@ -244,17 +248,18 @@ export const getArticles = async (category = 'all', search = '') => {
   } else {
     try {
       const res = await apiClient.get('/articles', { params: { category, search } });
-      articles = res.data.data;
+      articles = res.data?.data;
     } catch {
       setStandaloneMode();
       articles = getLocalData('mock_articles', fallbackArticles);
     }
   }
+  if (!Array.isArray(articles)) articles = getLocalData('mock_articles', fallbackArticles);
   let filtered = articles;
   if (category !== 'all') filtered = filtered.filter(a => a.category === category);
   if (search) {
     const q = search.toLowerCase();
-    filtered = filtered.filter(a => a.title_ar.includes(q) || a.title_en.toLowerCase().includes(q));
+    filtered = filtered.filter(a => (a.title_ar && a.title_ar.includes(q)) || (a.title_en && a.title_en.toLowerCase().includes(q)));
   }
   return filtered;
 };
