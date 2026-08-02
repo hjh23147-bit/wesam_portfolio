@@ -1,6 +1,9 @@
 {
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/((?!assets/|.*\\.(?:js|css|png|jpg|jpeg|gif|svg|ico|pdf|json|woff2?)).*)",
+      "destination": "/index.html"
+    }
   ]
 }
