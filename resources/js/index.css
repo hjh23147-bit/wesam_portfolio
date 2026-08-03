@@ -1,267 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap');
+/* ============================================
+   MULTIVERSE PORTFOLIO — Global Styles
+   ============================================ */
 
-@import "tailwindcss";
-
-@layer base {
-  :root {
-    --font-ar: 'Cairo', sans-serif;
-    --font-en: 'Outfit', 'Inter', sans-serif;
-    --font-code: 'Fira Code', monospace;
-
-    --bg-primary: #f8fafc;
-    --bg-secondary: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.8);
-    --border-color: #e2e8f0;
-    
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    
-    --royal-blue-50: #eff6ff;
-    --royal-blue-100: #dbeafe;
-    --royal-blue-500: #3b82f6;
-    --royal-blue-600: #2563eb;
-    --royal-blue-700: #1d4ed8;
-    --royal-blue-800: #1e40af;
-    --royal-blue-900: #1e3a8a;
-  }
-
-  .dark {
-    --bg-primary: #0b0f19;
-    --bg-secondary: #111827;
-    --bg-card: rgba(17, 24, 39, 0.75);
-    --border-color: #1e293b;
-    
-    --text-main: #f1f5f9;
-    --text-muted: #94a3b8;
-
-    --royal-blue-50: #172554;
-    --royal-blue-100: #1e3a8a;
-    --royal-blue-500: #60a5fa;
-    --royal-blue-600: #3b82f6;
-    --royal-blue-700: #2563eb;
-    --royal-blue-800: #1d4ed8;
-    --royal-blue-900: #1e40af;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-  }
-
-  html[dir="rtl"] body {
-    font-family: var(--font-ar);
-  }
-
-  html[dir="ltr"] body {
-    font-family: var(--font-en);
-  }
-
-  body {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    overflow-x: hidden;
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  code, pre {
-    font-family: var(--font-code);
-  }
-
-  /* 4. Responsive Images & Media Protection Rule */
-  img, video, picture, svg, canvas {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* 5. Touch Targets & Interactive Controls (Minimum 44px Height & Width) */
-  button, 
-  [role="button"],
-  input[type="submit"], 
-  input[type="reset"],
-  input[type="button"],
-  .btn-touch {
-    min-height: 44px;
-    min-width: 44px;
-    touch-action: manipulation;
-  }
-
-  /* Dark mode placeholder text styling */
-  .dark input::placeholder,
-  .dark textarea::placeholder {
-    color: #64748b;
-    opacity: 1;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: #94a3b8;
-    opacity: 1;
-  }
-
-  /* Dark mode select/dropdown styling */
-  .dark select {
-    color-scheme: dark;
-  }
-
-  /* Ensure text readability in dark mode */
-  .dark .text-slate-500 {
-    color: #94a3b8;
-  }
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ======================================================
- * 2. Mobile-First Approach & Breakpoint Standards:
- * - Mobile: < 600px
- * - Tablets: 601px - 1024px
- * - Desktop: > 1024px
- * ====================================================== */
-
-/* Mobile First Base Styles (<600px) */
-@media (max-width: 600px) {
-  .fluid-heading-hero {
-    font-size: clamp(2rem, 8vw, 3rem);
-    line-height: 1.2;
-  }
-  
-  .fluid-heading-section {
-    font-size: clamp(1.5rem, 6vw, 2.25rem);
-    line-height: 1.25;
-  }
-
-  .fluid-text-body {
-    font-size: clamp(0.875rem, 4vw, 1rem);
-    line-height: 1.6;
-  }
-
-  .glass-card {
-    border-radius: 1rem;
-    padding: 1.25rem;
-  }
-
-  /* Single column optimization for small mobile screens */
-  .mobile-stack {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .mobile-full-width {
-    width: 100% !important;
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #030014;
+  color: #e0e8ff;
+  font-family: 'Cairo', 'Alexandria', 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+  direction: ltr !important;
 }
 
-/* Tablets (601px to 1024px) */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .fluid-heading-hero {
-    font-size: clamp(2.75rem, 6vw, 4rem);
-  }
-
-  .fluid-heading-section {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-  }
-
-  .glass-card {
-    border-radius: 1.25rem;
-    padding: 1.75rem;
-  }
-}
-
-/* Desktop Screens (> 1024px) */
-@media (min-width: 1025px) {
-  .fluid-heading-hero {
-    font-size: clamp(3.5rem, 5vw, 4.5rem);
-  }
-
-  .glass-card {
-    border-radius: 1.5rem;
-    padding: 2rem;
-  }
-}
-
-/* Glassmorphism & Custom Utility Classes */
-.glass-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-}
-
-.glass-nav {
-  background: rgba(248, 250, 252, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.dark .glass-nav {
-  background: rgba(11, 15, 25, 0.88);
-}
-
-.glow-effect {
+#root {
+  width: 100vw;
+  height: 100vh;
   position: relative;
 }
 
-.glow-effect::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #2563eb, #3b82f6, #60a5fa, #1d4ed8);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(8px);
+/* ============================================
+   Typography & Responsive Fluid Scaling
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  line-height: 1.25;
 }
 
-.glow-effect:hover::after {
-  opacity: 0.6;
+code, pre, .mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom Scrollbar */
+/* ============================================
+   Canvas Layer
+   ============================================ */
+
+canvas {
+  display: block;
+  outline: none;
+  touch-action: none;
+}
+
+/* ============================================
+   Scrollbar — Hidden for immersive experience
+   ============================================ */
+
 ::-webkit-scrollbar {
-  width: 8px;
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 4px;
+/* ============================================
+   Selection
+   ============================================ */
+
+::selection {
+  background: rgba(79, 143, 255, 0.4);
+  color: #ffffff;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+/* ============================================
+   HTML Overlay Alignment & Responsiveness Fixes
+   ============================================ */
+
+/* Force 3D HTML projection wrapper to stay centered in 2D screen space */
+.r3f-html-overlay {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+  direction: ltr !important;
+  max-width: 90vw !important;
 }
 
-/* Dark mode focus ring styling */
-.dark input:focus,
-.dark textarea:focus,
-.dark select:focus {
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+/* Fixes button and link pointer events inside 3D HTML overlays */
+.r3f-html-overlay button,
+.r3f-html-overlay a,
+.r3f-html-overlay input,
+.r3f-html-overlay textarea {
+  pointer-events: auto;
 }
 
-/* Light mode focus ring */
+/* ============================================
+   Animation Keyframes
+   ============================================ */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ============================================
+   Utility Classes & Responsive Breakpoints
+   ============================================ */
+
+.glass {
+  background: rgba(5, 10, 25, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(79, 143, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a0d0ff 50%, #4f8fff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive adjustments for mobile screens (<768px) */
+@media (max-width: 768px) {
+  .r3f-html-overlay {
+    max-width: 95vw !important;
+    padding: 10px !important;
+  }
+
+  h1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+  }
+
+  h2 {
+    font-size: clamp(22px, 5.5vw, 32px) !important;
+  }
+
+  p {
+    font-size: clamp(12px, 3.5vw, 15px) !important;
+  }
+}
+
+/* Responsive adjustments for ultra-wide screens (>1920px) */
+@media (min-width: 1920px) {
+  .r3f-html-overlay {
+    max-width: 1200px !important;
+  }
+}
+
+/* ============================================
+   Input Styles
+   ============================================ */
+
+input, textarea {
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(140, 180, 255, 0.35);
+}
+
 input:focus,
-textarea:focus,
-select:focus {
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+textarea:focus {
+  border-color: rgba(79, 143, 255, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(79, 143, 255, 0.15);
 }
 
-/* Improved dark mode modal backdrop */
-.dark .modal-backdrop {
-  background: rgba(0, 0, 0, 0.7);
+/* ============================================
+   Link & Button Interactive Smoothness
+   ============================================ */
+
+a, button {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark mode table hover */
-.dark tr:hover td {
-  background-color: rgba(30, 41, 59, 0.5);
+a:hover, button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(79, 143, 255, 0.4);
+}
+
+a:active, button:active {
+  transform: translateY(0);
 }

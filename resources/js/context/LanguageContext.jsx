@@ -9,8 +9,9 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     i18n.changeLanguage(lang);
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
+    // Keep document dir as 'ltr' so 3D HTML projection matrices project to 50% 50% without browser RTL offset bugs
+    document.documentElement.dir = 'ltr';
     localStorage.setItem('language', lang);
   }, [lang, i18n]);
 
